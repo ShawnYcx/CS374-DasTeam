@@ -1,10 +1,15 @@
+package CSV_Parser;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Vector;
  
 public class CSVParse
 {
-    public static void main(String[] args)
+    private Vector<String> studentNames = new Vector<String>(10,2);
+
+    public Vector<String> notInClass(String aCourse)
     {
         //Input file which needs to be parsed
         String fileToParse = "Something.csv";
@@ -23,11 +28,16 @@ public class CSVParse
             {
                 //Get all tokens available in line
                 String[] tokens = line.split(DELIMITER);
-                for(String token : tokens)
+                        
+                if (tokens[2] != aCourse)
                 {
-                    //Print all tokens
-                    System.out.println(token);
+                    checkNameInVec(tokens[1]);
                 }
+                // for(String token : tokens)
+                // {
+                //     //Print all tokens
+                //     System.out.println(token);
+                // }
             }
         } 
         catch (Exception e) {
@@ -41,5 +51,12 @@ public class CSVParse
                 e.printStackTrace();
             }
         }
+
+        return studentNames;
+    }
+
+    private void checkNameInVec(String aName) {
+        if (!studentNames.contains(aName))
+            studentNames.add(aName);        
     }
 }
