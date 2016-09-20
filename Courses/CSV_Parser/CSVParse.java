@@ -2,7 +2,6 @@ package CSV_Parser;
 
 import com.opencsv.CSVReader;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
@@ -15,7 +14,6 @@ public class CSVParse
     {
         //Input file which needs to be parsed
         String csvFile = "Something.csv";
-        
         CSVReader reader = null;
         try
         {
@@ -27,25 +25,13 @@ public class CSVParse
                     checkNameInVec(line[1]);
                 }
             }
-        
         } 
-        catch (Exception e) {
-            // e.printStackTrace();
-        } 
-        // finally
-        // {
-        //     try {
-        //         reader.close();
-        //     } catch (IOException e) {
-        //         e.printStackTrace();
-        //     }
-        // }
-
+        catch (Exception e) {}
         return studentNames;
     }
 
     private void checkNameInVec(String aName) {
         if (!studentNames.contains(aName))
-            studentNames.add(aName);        
+            studentNames.add(aName);
     }
 }
