@@ -17,7 +17,7 @@ public class CourseTest {
 
 	@Then("^the student \"([^\"]*)\" should not be in that class$")
 	public void theStudentShouldNotBeInThatClass(String studentName) throws Throwable {
-	    students.notInClass();
+	    assertEquals(studentName, students.notInClass());
 	}
 
 }

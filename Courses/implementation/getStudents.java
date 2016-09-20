@@ -11,8 +11,9 @@ public class GetStudents {
 		studentNames = reader.notInClass(aCourse);
 	}
 
-	public void notInClass(){
+	public String notInClass(){
 		String a = studentNames.elementAt(1);
+		return a;
 	}	
 
 }
