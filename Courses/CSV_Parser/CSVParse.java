@@ -1,5 +1,7 @@
 package CSV_Parser;
 
+import com.opencsv.CSVReader;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,45 +14,32 @@ public class CSVParse
     public Vector<String> notInClass(String aCourse)
     {
         //Input file which needs to be parsed
-        String fileToParse = "Something.csv";
-        BufferedReader fileReader = null;
-         
-        //Delimiter used in CSV file
-        final String DELIMITER = ",";
+        String csvFile = "Something.csv";
+        
+        CSVReader reader = null;
         try
         {
-            String line = "";
-            //Create the file reader
-            fileReader = new BufferedReader(new FileReader(fileToParse));
-             
-            //Read the file line by line
-            while ((line = fileReader.readLine()) != null) 
-            {
-                //Get all tokens available in line
-                String[] tokens = line.split(DELIMITER);
-                        
-                if (tokens[2] != aCourse)
+            reader = new CSVReader(new FileReader(csvFile));
+            String[] line;
+            while ((line = reader.readNext()) != null) {
+                if (line[2] != aCourse)
                 {
-                    checkNameInVec(tokens[1]);
+                    checkNameInVec(line[1]);
                 }
-                // for(String token : tokens)
-                // {
-                //     //Print all tokens
-                //     System.out.println(token);
-                // }
             }
+        
         } 
         catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         } 
-        finally
-        {
-            try {
-                fileReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        // finally
+        // {
+        //     try {
+        //         reader.close();
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
+        // }
 
         return studentNames;
     }
