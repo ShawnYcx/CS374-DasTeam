@@ -8,6 +8,11 @@ public class GetStudents {
 	private Vector<String> courseTaking = new Vector<String>(4,2);
 	private int hours = 0;
 
+	private String my_ClassName = "";
+		private String iAMok = "False";
+		private String my_Name = "";
+
+
 	public void checkCourse (String aCourse, String prereq, int hour) {
 		String[] part = prereq.split(",");
 
@@ -41,4 +46,27 @@ public class GetStudents {
 		return courseTaking.size();
 	}
 
+	public void currentClass(String className)
+		{
+			//Initial the class student is taking.
+			my_ClassName = className;
+		}
+
+		public void compare(String class_history, String class_preq)
+		{
+			if(class_history.equals(class_preq))
+			{
+				iAMok = "True";
+			}
+		}
+
+		public void getName(String student_name)
+		{
+			my_Name = student_name;
+		}
+
+		public String getResult( )
+		{
+			return iAMok;
+		}
 }
