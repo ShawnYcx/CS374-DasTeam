@@ -9,7 +9,7 @@ import cucumber.api.PendingException;
 public class CourseTest {
 		
 	GetStudents getStudent;
-
+	GetStudents students;
 	@Before 
 	public void setUp()
 	{
