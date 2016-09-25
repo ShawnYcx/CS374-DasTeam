@@ -3,10 +3,10 @@ import java.util.Vector;
 
 public class GetStudents {
 
-	private Vector<String> requires = new Vector<String>(4,2);
+	private Vector<String> requires = new Vector<String>(4,2);// holds requires
 	private Vector<String> takenCourses = new Vector<String>(4,2);
-	private Vector<String> courseTaking = new Vector<String>(4,2);
-	private int hours = 0;
+	private Vector<String> courseTaking = new Vector<String>(4,2);//holds the current course.
+	private int my_Hours = 0;//total hour
 
 	private String my_ClassName = "";
 		private String iAMok = "False";
@@ -14,15 +14,15 @@ public class GetStudents {
 
 
 	public void checkCourse (String aCourse, String prereq, int hour) {
-		String[] part = prereq.split(",");
+		String[] part = prereq.split(",");//split course and preq into individual string stored in part. 
 
-		if (prereq != "0"){
+		if (prereq != "0"){//add add preq to requires. 
 			for (int i = 0; i < part.length; i++) {
 				requires.add(part[i]);	
 			}
 		}
-		courseTaking.add(aCourse);
-		hours += hour;
+		courseTaking.add(aCourse);//
+		my_Hours += hour;
 	}
 
 	public void addTakenCourses (String aCourse) {
@@ -39,7 +39,7 @@ public class GetStudents {
 	}
 
 	public int getHours () {
-		return hours;
+		return my_Hours;
 	}
 
 	public int getNumberOfCourses (){
@@ -52,21 +52,21 @@ public class GetStudents {
 			my_ClassName = className;
 		}
 
-		public void compare(String class_history, String class_preq)
+	public void compare(String class_history, String class_preq)
+	{
+		if(class_history.equals(class_preq))
 		{
-			if(class_history.equals(class_preq))
-			{
-				iAMok = "True";
-			}
+			iAMok = "True";
 		}
+	}
 
-		public void getName(String student_name)
-		{
-			my_Name = student_name;
-		}
+	public void getName(String student_name)
+	{
+		my_Name = student_name;
+	}
 
-		public String getResult( )
-		{
-			return iAMok;
-		}
+	public String getResult( )
+	{
+		return iAMok;
+	}
 }
