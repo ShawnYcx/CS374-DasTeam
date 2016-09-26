@@ -1,2 +1,7 @@
 Things expected for DEMO 2:
 	
+We should be able to:
+- Successfully read the CSV file
+- Parse specific values from specific attributes
+- Determine the amount of people taking certain classes
+
