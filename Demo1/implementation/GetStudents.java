@@ -30,10 +30,10 @@ public class GetStudents {
 	}
 
 	public String getApproval () {
-		String a = "false";
+		String a = "False";
 
 		if (takenCourses.equals(requires))
-			a = "true";
+			a = "True";
 
 		return a;
 	}
