@@ -4,16 +4,19 @@ import CSV_Parser.CSVParse;
 
 public class GetStudents {
 
-	private Vector<String> studentNames = new Vector<String>(10,2);
+	private Vector<String> returnedThings = new Vector<String>();
 	CSVParse reader = new CSVParse();
 
-	public void takeCourse(String aCourse){
-		studentNames = reader.notInClass(aCourse);
+	public void takeCourse(String Pidm){
+		returnedThings = reader.notInClass("Pidm");
 	}
 
-	public String notInClass(){
-		String a = studentNames.elementAt(1);
-		return a;
+	public boolean getNotInCourse(String studentName){
+		if (returnedThings.contains(studentName))
+			return true;
+		else
+			return false;
+		return false;
 	}	
 
 }
