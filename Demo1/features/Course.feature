@@ -6,21 +6,21 @@ Feature: Take courses and student names
 
 Examples:
 |student_name                 | course_title  | course_preq | result |
-|"Bernard,Duffy,Bonnie"       |"Accounting,Information,Systems"|"Operations,Management,Strategic,Management" | "True" |    
-|"Bernard,Duffy,Bonnie"       |"American,Literature,After,1900"|""|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Money,and,Banking"|"Cost,Accounting,I"|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Advanced,Accounting,I"|"Cost,Accounting,I,Income,Tax,I"|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Operations,Management"|"Cost,Accounting,I"|"True" | 
 |"Bernard,Duffy,Bonnie"       |"Canoe,Camping"|""|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Religious,Teach.,of,C.S.,Lewis"|"American,Literature,After,1900"|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Business,and,Prof,Writing"|"Business,Law,II,Money,and,Banking,Cost,Accounting,I"|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Principles,of,Investment"|"Cost,Accounting,I,Income,Tax,I"|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Cost,Accounting,I"|""|"True" | 
+|"Bernard,Duffy,Bonnie"       |"American,Literature,After,1900"|""|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Cost,Accounting,I"|""|"True" |
 |"Bernard,Duffy,Bonnie"       |"Fundamentals,of,Auditing"|""|"True" | 
-|"Bernard,Duffy,Bonnie"       |"International,Business"|"Operations,Management"|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Business,Law,II"|"Money,and,Banking,Cost,Accounting,I"|"True" | 
 |"Bernard,Duffy,Bonnie"       |"Snow,Skiing"|""|"True" | 
 |"Bernard,Duffy,Bonnie"       |"Introduction,to,Psychology"|""|"True" | 
 |"Bernard,Duffy,Bonnie"       |"Income,Tax,I"|""|"True" | 
-|"Bernard,Duffy,Bonnie"       |"Financial,Theory&Practice"|"Cost,Accounting,I,Operations,Management"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Advanced,Accounting,I"|"Cost,Accounting,I,Income,Tax,I"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Operations,Management"|"Cost,Accounting,I"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Money,and,Banking"|"Cost,Accounting,I"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Religious,Teach.,of,C.S.,Lewis"|"American,Literature,After,1900"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Principles,of,Investment"|"Cost,Accounting,I,Income,Tax,I"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"International,Business"|"Operations,Management"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Business,Law,II"|"Money,and,Banking,Cost,Accounting,I"|"True" | 
 |"Bernard,Duffy,Bonnie"       |"Strategic,Management"|"Operations,Management"|"True" | 
+|"Bernard,Duffy,Bonnie"       |"Accounting,Information,Systems"|"Operations,Management,Strategic,Management" | "True" | 
+|"Bernard,Duffy,Bonnie"       |"Financial,Theory&Practice"|"Cost,Accounting,I,Operations,Management"|"True" |  
+|"Bernard,Duffy,Bonnie"       |"Business,and,Prof,Writing"|"Business,Law,II,Money,and,Banking,Cost,Accounting,I"|"True" |  
