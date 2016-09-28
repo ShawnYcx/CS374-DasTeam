@@ -16,22 +16,13 @@ public class CourseTest {
 		getStudent = new GetStudents();
 	}
 
-	@Given("^that Student\"([^\"]*)\" wants to take the course \"([^\"]*)\" with preq\"([^\"]*)\"$")
-	public void thatStudentWantsToTakeTheCourse(String student_name, String course_title, String course_preq) throws Throwable {
-	    getStudent.checkCourse(course_title,course_preq,3);
-	    if (getStudent.getApproval() == "True" )
-	    {
-	    	getStudent.addTakenCourses(course_title);
-	    }
+	@Given("^a professor wants to find a student \"([^\"]*)\" \"([^\"]*)\" and the total number of classes he has taken$")
+	public void aProfessorWantsToFindAStudentAndTheTotalNumberOfClassesHeHasTaken(String arg1, String arg2) throws Throwable {
+	    getStudent.addTakenCourses(arg1, arg2);
 	}
 
-	@When("^the Course_history satisfy course_preq ##course history will just be the vector$")
-	public void theCourse_historySatisfyCourse_preqCourseHistoryWillJustBeTheVector() throws Throwable {
-
-	}
-
-	@Then("^It is result\"([^\"]*)\" that Student<Student> is able to take the course$")
-	public void itIsResultThatStudentStudentIsAbleToTakeTheCourse(String result) throws Throwable {
-		result.equals(getStudent.getApproval());
+	@Then("^the number of classes (\\d+)$")
+	public void theNumberOfClasses(int arg1) throws Throwable {
+	    assertEquals(arg1, getStudent.getNumberOfCourses());
 	}
 }
