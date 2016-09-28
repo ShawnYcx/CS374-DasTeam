@@ -1,0 +1,8 @@
+Things expected for DEMO 3:
+	
+We should be able to:
+- Optimize parsing speed. Cut down at least by 30 sec from 52 sec.
+- Upload CSV Data into database
+- Being able use Java to work with SQL
+- Load CSV only once for all 
+
