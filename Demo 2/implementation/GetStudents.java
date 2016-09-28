@@ -1,10 +1,11 @@
 package implementation;
 import java.util.Vector;
+import CSV_Parser.CSVParse;
 
 public class GetStudents {
-
+	private CSVParse getData = new CSVParse();
 	private Vector<String> requires = new Vector<String>(4,2);// holds requires
-	private Vector<String> takenCourses = new Vector<String>(4,2);
+	private Vector<String> takenCourses = new Vector<String>();
 	private Vector<String> courseTaking = new Vector<String>(4,2);//holds the current course.
 	private int my_Hours = 0;//total hour
 
@@ -25,8 +26,8 @@ public class GetStudents {
 		my_Hours += hour;
 	}
 
-	public void addTakenCourses (String aCourse) {
-		takenCourses.add(aCourse);
+	public void addTakenCourses (String first, String last) {
+		takenCourses = getData.getValuesFromCSV(first,last);
 	}
 
 	public String getApproval () {
@@ -43,7 +44,7 @@ public class GetStudents {
 	}
 
 	public int getNumberOfCourses (){
-		return courseTaking.size();
+		return takenCourses.size();
 	}
 
 	public void currentClass(String className)
