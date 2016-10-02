@@ -70,4 +70,10 @@ public class GetStudents {
 	{
 		return iAMok;
 	}
+
+	public int checkNumberofStudent(int course_number, String section_number, String class_name)
+	{
+		//count number of students took this class. 
+	}
+
 }

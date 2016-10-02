@@ -41,7 +41,7 @@ public class CSVParse
                     } 
                 }
                     student_name = (nextLine[indexToGet]+nextLine[nextIndexToGet]);
-                    String check_name = (first+last);
+                    String check_name.equals (first+last);
                     // System.out.println(check_name + "  " + student_name);
 
                     if (student_name.equals(check_name)){

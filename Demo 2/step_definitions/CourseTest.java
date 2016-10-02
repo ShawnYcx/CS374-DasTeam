@@ -25,4 +25,9 @@ public class CourseTest {
 	public void theNumberOfClasses(int arg1) throws Throwable {
 	    assertEquals(arg1, getStudent.getNumberOfCourses());
 	}
+	
+	@Then("^show the number of students took (\\d+)\"([^\"]*)\"\"([^\"]*)\"(\\d+)$")
+	public void showTheNumberOfStudentsTook(int course_number, String section_number, String class_name, int result) throws Throwable {
+	    assertEquals(result, getStudent.checkNumberofStudent(course_number,section_number,class_name));
+	}
 }
