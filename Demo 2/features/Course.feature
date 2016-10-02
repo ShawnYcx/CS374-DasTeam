@@ -63,12 +63,12 @@ Examples:
 |"Melita"   |"Moody"        |  29    |
 |"Francisco"|"Huppert"      |  34    |
 |"Robert"   |"Beier"        |  34    |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
+|"Sylvia"   |"Anderson"     |  32    |
+|"Jeffery"  |"Gore"         |  38    |
+|"Wilma"    |"Cooper"       |  27    |
+|"Randall"  |"Gill"         |  12    |
+|"Jose"     |"Guerra"       |  4     |
+|"Renay"    |"Hunley"       |  3     |
 |""|""| |
 |""|""| |
 |""|""| |
