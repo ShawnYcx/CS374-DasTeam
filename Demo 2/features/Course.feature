@@ -69,32 +69,32 @@ Examples:
 |"Randall"  |"Gill"         |  12    |
 |"Jose"     |"Guerra"       |  4     |
 |"Renay"    |"Hunley"       |  3     |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-|""|""| |
-
-
+|"Sylvia"   |"Anderson"     |  32    |
+|"Jeffery"  |"Gore"         |  38    |
+|"Wilma"    |"Cooper"       |  27    |
+|"Randall"  |"Gill"         |  12    |
+|"Jose"     |"Guerra"       |  4     |
+|"Renay"    |"Hunley"       |  3     |
+|"Kathleen" |"Miller"       |  36    |
+|"Matthew"  |"Ferguson"     |  19    |
+|"Cory"     |"Bowen"        |  19    |
+|"Antonio"  |"Yunker"       |  18    |
+|"Robert"   |"Edwards"      |  32    |
+|"Roland"   |"Harnden"      |  7     |
+|"Maurice"  |"Robertson"    |  6     |
+|"Dean"     |"Reynolds"     |  20    |
+|"Elena"    |"Kelly"        |  12    |
+|"Richard"  |"Allen"        |  6     |
+|"Miquel"   |"Oconnell"     |  7     |
+|"Ross"     |"Johnson"      |  8     |
+|"Vivian"   |"Fuller"       |  17    |
+|"Robert"   |"Pflieger"     |  10    |
+|"William"  |"Nicholson"    |  10    |
+|"Maureen"  |"Paulino"      |  7     |
+|"Archie"   |"Murray"       |  27    |
+|"Alice"    |"Finan"        |  28    |
+|"Amy"      |"Cahoon"       |  7     |
+|"Horace"   |"Evans"        |  16    |
+|"Randy"    |"Hashimoto"    |  3     |
+|"Ralph"    |"Sams"         |  14    |
+|"Matthew"  |"Hackleman"    |  6    |
