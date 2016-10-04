@@ -42,7 +42,7 @@ public class CSVParse
                 }
                 student_name += (nextLine[indexToGet] +nextLine[nextIndexToGet]);
                 
-                if (student_name = (first+last)){
+                if (student_name .equals (first+last)){
                     course += (nextLine[41]+nextLine[43]);
                     things.add(course);
                 }

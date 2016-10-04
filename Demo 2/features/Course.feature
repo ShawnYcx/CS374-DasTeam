@@ -97,7 +97,6 @@ Examples:
 |"Horace"   |"Evans"        |  16    |
 |"Randy"    |"Hashimoto"    |  3     |
 |"Ralph"    |"Sams"         |  14    |
-|"Matthew"  |"Hackleman"    |  6     |
 
 	Scenario Outline: An advisor wants to know how many students are in one class
 		Given a professor wants to find how many students took class <course_number><section_number><class_name>
