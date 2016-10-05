@@ -17,7 +17,6 @@ public class CSVParse
 
     public Vector<String> getValuesFromCSV(String first, String last)
     {
-
         int indexToGet = -1, nextIndexToGet = -1; 
         //Input file which needs to be parsed
         String csvFile = "cs374_anon.csv";
@@ -29,30 +28,29 @@ public class CSVParse
             reader = new CSVReader(new FileReader(csvFile));
              String [] nextLine;
              while ((nextLine = reader.readNext()) != null) {
-               
-                if (indexToGet ==  -1 && nextIndexToGet == -1){
+                if (indexToGet ==  -1 || nextIndexToGet == -1){
                     for (int i = 0; i < nextLine.length; i++) {
                         if (nextLine[i].equals("First Name"))
                             indexToGet = i;
                         if (nextLine[i].equals("Last Name"))
                             nextIndexToGet = i;
-                        if (indexToGet !=  -1 && nextIndexToGet != -1)
+
+                        if (indexToGet !=  -1 && nextIndexToGet != -1){
                             break;
+                        }
                     } 
                 }
-                    student_name = (nextLine[indexToGet]+nextLine[nextIndexToGet]);
-                    String check_name.equals (first+last);
-                    // System.out.println(check_name + "  " + student_name);
 
-                    if (student_name.equals(check_name)){
-                        things.add(nextLine[0]);
-                    }
+                student_name += (nextLine[indexToGet] +nextLine[nextIndexToGet]);
+                
+                if (student_name .equals (first+last)){
+                    course += (nextLine[41]+nextLine[43]);
+                    things.add(course);
+                }
             }
             // System.out.print(things);
         } 
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        catch (Exception e) {}
         return things;
     }
 }
