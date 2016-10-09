@@ -10,7 +10,7 @@ public class CourseTest {
 		
 	GetStudents getStudent;
 	
-	@Before 
+	@Before
 	public void setUp()
 	{
 		getStudent = new GetStudents();
@@ -23,11 +23,16 @@ public class CourseTest {
 
 	@Then("^the number of classes (\\d+)$")
 	public void theNumberOfClasses(int arg1) throws Throwable {
-	    
+	    assertEquals(arg1,getStudent.getCount());
 	}
 	
-	@Then("^show the number of students took (\\d+)\"([^\"]*)\"\"([^\"]*)\"(\\d+)$")
-	public void showTheNumberOfStudentsTook(int course_number, String section_number, String class_name, int result) throws Throwable {
-	    
+	@Given("^a professor wants to find how many students took class (\\d+) section \"([^\"]*)\" class name \"([^\"]*)\"$")
+	public void aProfessorWantsToFindHowManyStudentsTookClassSectionClassName(int arg1, String arg2, String arg3) throws Throwable {
+	    getStudent.takeStudent(arg2, arg3);
+	}
+
+	@Then("^the number of students (\\d+)$")
+	public void theNumberOfStudents(int arg1) throws Throwable {
+	    // assertEquals(arg1, arg1);
 	}
 }

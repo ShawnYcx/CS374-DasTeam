@@ -12,13 +12,10 @@ public class GetStudents {
 	public void takeStudent(String first, String last){
 		access = new MySQLAccess();
 		listOfLists = access.getStudentCount(first, last);
-
-		for (int i = 0; i<listOfLists.size(); i++) {
-			if (listOfLists.get(i).get(1).equals(first) && listOfLists.get(i).get(2).equals(last)){
-				System.out.println("TRUE TRUE");
-			}	
-		}
-		
 	}
-
+	
+	public int getCount() {
+		count = Integer.parseInt(listOfLists.get(0).get(0));
+		return count;
+	}
 }

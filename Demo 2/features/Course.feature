@@ -19,21 +19,21 @@ Examples:
 |"David"    | "Wideman"     |  30    |
 |"Amy"      |"Brandenberger"|  7     |
 |"Glenda"   |"Harris"       |  18    |
-|"Irma"     |"Murphy"       |  24    |
+|"Irma"     |"Murphy"       |  48    |
 |"Candice"  |"Ward"         |  24    |
 |"Beverly"  |"Chapman"      |  14    | 
 |"Ruth"     |"Bostick"      |  27    |
 |"Brandon"  |"Raybon"       |  20    |
 |"Michelle" |"Mccool"       |  27    |
 |"Carl"     |"Nellis"       |  4     |
-|"John"     |"Allen"        |  13    |
+|"John"     |"Allen"        |  14    |
 |"Shirley"  |"Combee"       |  13    |
-|"James"    |"Johnson"      |  7     |
+|"James"    |"Johnson"      |  12    |
 |"Richard"  |"Perez"        |  39    |
 |"Paul"     |"Craig"        |  7     |
 |"Joyce"    |"Nelson"       |  22    |
 |"Edward"   |"Strother"     |  14    | 
-|"Jamie"    |"Lopez"        |  22    |
+|"Jamie"    |"Lopez"        |  23    |
 |"Ruby"     |"Livingston"   |  30    |
 |"Peggy"    |"Hollingsworth"|  20    |
 |"Geraldine"|"Boyd"         |  29    |
@@ -54,7 +54,7 @@ Examples:
 |"Frederick"|"Taylor"       |  11    |
 |"Susan"    |"Vanscoy"      |  34    |
 |"Sarah"    |"Grigsby"      |  35    |
-|"Louis"    |"Fulbright"    |  22    |
+|"Louis"    |"Fulbright"    |  35    |
 |"Eloise"   |"Stout"        |  34    |
 |"Oscar"    |"Spencer"      |  4     |
 |"Jeremy"   |"Santiago"     |  31    |
@@ -97,10 +97,10 @@ Examples:
 |"Amy"      |"Cahoon"       |  7     |
 |"Horace"   |"Evans"        |  16    |
 |"Randy"    |"Hashimoto"    |  3     |
-|"Ralph"    |"Sams"         |  14    |
+|"Ralph"    |"Sams"         |  33    |
 
 	Scenario Outline: An advisor wants to know how many students are in one class
-		Given a professor wants to find how many students took class <course_number><section_number><class_name>
+		Given a professor wants to find how many students took class <course_number> section <section_number> class name <class_name>
 		Then the number of students <total>
 Examples:
 |course_number|section_number|class_name|total|
@@ -126,7 +126,7 @@ Examples:
 |130|"5"|"Environmental & Tech Science"|131|
 |111|"4"|"Elementary Spanish I"|62|
 |361|"1"|"Ceramics I"|58|
-|133|"1"|"General Chemistry I"||
+|133|"1"|"General Chemistry I"|132|
 |490|"3"|"Adv Stu Prob: Adv.  Printmakin"|1|
 |472|"1"|"Intro to Hebrew II"|14|
 |102|"T12"|"Life, Literature and Community"|209|
