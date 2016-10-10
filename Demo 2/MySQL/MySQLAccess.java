@@ -28,6 +28,7 @@ public class MySQLAccess {
 
                 String setFirstName = ("'" + firstName + "'");
                 String setLastName = ("'%" + lastName + "%'");
+                //this function counts how many class a student is taking. 
                 String setSQL = ("SELECT Count(*) as Count, First_Name, Last_Name from cs374_anon WHERE First_Name="+ setFirstName + " AND Last_Name like "+ setLastName +" Group by Last_Name");
 
                 //PreparedStatements can use variables and are more efficient
