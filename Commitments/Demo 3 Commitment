@@ -1,8 +1,29 @@
 Things expected for DEMO 3:
-	
-We should be able to:
-- Optimize parsing speed. Cut down at least by 30 sec from 52 sec.// I will try to work on this --Steven
+       
+* The goal: We should be able to:
+- Optimize parsing speed. Cut down at least by 30 sec from 52 sec
 - Upload CSV Data into database
 - Being able use Java to work with SQL
-- Load CSV only once for all 
+- Load CSV only once for all
 
+* Features and the reason:
+- Upload CSV into database:
+* Cut down loading time for user to read a CSV file for future use. 
+* Increase user experience interacting with this project. 
+* Universal solution for importing data on local devices.
+
+- Counting how many class each student has taken:
+* This is an easy and useful way for our customer to tell what classes has a student taken.
+* Preventing a students from taking duplicate classes.
+
+* Checking if the students record meets the requirements for each class the student intend to take in the future. 
+- Count how many students took or is taking one class.
+* A convenient way to collect students’ data for a specific class.
+* Allow professors/advisors to set the maximum number of student can join a class. 
+* Compare the constraint on number of students in specific classes with the past experiences in order to calculate a more exact and logical number for professors/advisors to set the maximum number of student will be allowed in each class. 
+
+- Checking if a student meets the course pre-requirement.
+* Core feature of this project. 
+* Allow professor/advisors to see if a student is capable of taking a desired class. 
+* Allow professor/advisors to make certain arrangement on whether to keep a student in a specific class. 
+* This feature cooperate with the above features.  	
