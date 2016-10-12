@@ -2,7 +2,9 @@ package implementation;
 
 import MySQL.MySQLAccess;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GetStudents {
 	MySQLAccess access;
@@ -13,13 +15,13 @@ public class GetStudents {
 	// This is a Dictionary of Student names and class information
 	Map<String, List<String>> listOfStudentInfo = new HashMap<String, List<String>>();
 
-	public takeListOfStudents(List<List<String>> students){
+	public void takeListOfStudents(List<List<String>> students){
 		access = new MySQLAccess();
 		listOfStudents = students;
 		List<String> internal = new ArrayList<String>();
 
 		for (int i; i < listOfStudents.size(); i+=2) {
-			internal = access.getStudentInfo(listOfStudents.get(0).get(i), listOfStudents.get().get(i+1));
+			internal = access.getStudentInfo(listOfStudents.get(0).get(i), listOfStudents.get(0).get(i+1));
 			dictionary.put(i, internal);
 		}
 		// System.out.println(hm.get("key1"));
@@ -28,7 +30,7 @@ public class GetStudents {
 	public void getPreReqData(){
 		try {
 			access = new MySQLAccess();
-			listOfPreReq = access.readPreReqData();	
+			listOfPreReq = access.getPreReqData();	
 		} catch (Exception e) {
                      //throw e;
 		} finally {

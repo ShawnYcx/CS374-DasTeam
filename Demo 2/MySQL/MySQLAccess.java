@@ -33,19 +33,20 @@ public List<List<String>> getPreReqData() throws Exception {
             String setSQL = ("select * from Course_preq");
 
             resultSet = statement.executeQuery(setSQL);
-            writeResultSet(resultSet);
+            //writeResultSet(resultSet);
 
-            /*  EXAMPLE
+            
             while (resultSet.next()) {
                 List<String> internal = new ArrayList<String>();
-                String Subject_Code = resultSet.getString("Column1");
-                String Course_Number = resultSet.getString("Column2");
-                String Course_Number = resultSet.getString("Column3");
+                String Subject_Code = resultSet.getString("Subject_Code");
+                String Course_Number = resultSet.getString("Course_Number");
+                String Course_Preq_Title = resultSet.getString("Course_Preq_Title");
 
                 internal.add(Subject_Code);
                 internal.add(Course_Number);
+                internal.add(Course_Preq_Title);
                 listOfLists.add(internal);
-            }*/
+            }
 
          } catch (Exception e) {
                  throw e;
@@ -61,7 +62,7 @@ try {
         Class.forName("com.mysql.jdbc.Driver");
         // Setup the connection with the DB
         connect = DriverManager
-                     .getConnection(shawnConnection);
+                     .getConnection(ivanConnection);
         statement = connect.createStatement();
 
         String setFirstName = ("'" + firstName + "'");
@@ -80,6 +81,7 @@ try {
 
             internal.add(Subject_Code);
             internal.add(Course_Number);
+            //listOfLists.add(internal);
         }
 
       // System.out.println(hm.get("key1"));

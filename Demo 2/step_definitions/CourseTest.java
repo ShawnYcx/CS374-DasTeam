@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.*;
 import cucumber.api.PendingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseTest {
 		
@@ -24,12 +26,6 @@ public class CourseTest {
 
 		internal.add(arg1);
 		internal.add(arg2);
-
-		internal.add(arg3);
-		internal.add(arg4);
-
-		internal.add(arg5);
-		internal.add(arg6);
 
 		students.add(internal);
 
