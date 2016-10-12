@@ -20,49 +20,52 @@ private PreparedStatement preparedStatement = null;
 private ResultSet resultSet = null;
 
 private List<List<String>> listOfLists = new ArrayList<List<String>>();
-public List<List<String>> getPreReqData() throws Exception {
+private List<String> internal;
+
+public List<String> getPreReqData(String subCode, String cNum) throws Exception {
          try {
             //This will load the MySQL driver, each DB has its own driver
             Class.forName("com.mysql.jdbc.Driver");
             // Setup the connection with the DB
             connect = DriverManager
-                         .getConnection(ivanConnection);
+                         .getConnection("jdbc:mysql://localhost:3306/CS374?user=root&useSSL=false");
             statement = connect.createStatement();
+            
+            String sub = ("'" + subCode + "'");
+            String num = ("'%" + cNum + "%'");
 
+            // System.out.println(sub);
+            // System.out.println(num);
             //this function counts how many class a student is taking. 
-            String setSQL = ("select * from Course_preq");
+            String setSQL = ("SELECT * from course_Preq WHERE Subject_Code="+sub+" AND Course_Number Like"+ num);
 
             resultSet = statement.executeQuery(setSQL);
-            //writeResultSet(resultSet);
-
             
             while (resultSet.next()) {
-                List<String> internal = new ArrayList<String>();
-                String Subject_Code = resultSet.getString("Subject_Code");
-                String Course_Number = resultSet.getString("Course_Number");
-                String Course_Preq_Title = resultSet.getString("Course_Preq_Title");
-
-                internal.add(Subject_Code);
-                internal.add(Course_Number);
-                internal.add(Course_Preq_Title);
-                listOfLists.add(internal);
-            }
+                internal = new ArrayList<String>();
+                String preQ = resultSet.getString("Course_Preq_Title");
+                
+                internal.add(preQ);
+            }        
+            // System.out.println(preQ);
 
          } catch (Exception e) {
-                 throw e;
+                 // throw e;
          } finally {
                  close();
          }
 
+         return internal;
+
  }
 
 public List<String> getStudentInfo(String firstName, String lastName) {
-try {
+    try {
         // This will load the MySQL driver, each DB has its own driver
         Class.forName("com.mysql.jdbc.Driver");
         // Setup the connection with the DB
         connect = DriverManager
-                     .getConnection(ivanConnection);
+                     .getConnection("jdbc:mysql://localhost:3306/CS374?user=root&useSSL=false");
         statement = connect.createStatement();
 
         String setFirstName = ("'" + firstName + "'");
@@ -71,28 +74,22 @@ try {
         String setSQL = ("SELECT First_Name, Last_Name, Subject_Code, Course_Number from cs374_anon WHERE First_Name="+ setFirstName + " AND Last_Name like "+ setLastName);
 
         resultSet = statement.executeQuery(setSQL);
-        List<String> internal = new ArrayList<String>();
-        internal.add(firstName);
-        internal.add(lastName);
-
+        internal = new ArrayList<String>();
         while (resultSet.next()) {
             String Subject_Code = resultSet.getString("Subject_Code");
             String Course_Number = resultSet.getString("Course_Number");
 
             internal.add(Subject_Code);
             internal.add(Course_Number);
-            //listOfLists.add(internal);
         }
-
-      // System.out.println(hm.get("key1"));
                              
      } catch (Exception e) {
              // throw e;
      } finally {
              close();
      }
-
      return internal;
+     
 }
 
 // You need to close the resultSet

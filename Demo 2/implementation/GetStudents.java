@@ -2,39 +2,65 @@ package implementation;
 
 import MySQL.MySQLAccess;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class GetStudents {
 	MySQLAccess access;
-	// This is a 2D array of student names
-	private List<List<String>> listOfStudents = new ArrayList<List<String>>();
-	// This is a 2D array of pre-requisite of courses
-	private List<List<String>> listOfPreReq = new ArrayList<List<String>>();
-	// This is a Dictionary of Student names and class information
-	Map<String, List<String>> listOfStudentInfo = new HashMap<String, List<String>>();
+	// This is a array of pre-requisite of courses
+	private List<String> listOfPreReq = new ArrayList<String>();
+	//Map<String, List<String>> listOfStudentInfo = new HashMap<String, List<String>>();
+	private List<String> listOfStudentInfo = new ArrayList<String>();
 
-	public void takeListOfStudents(List<List<String>> students){
+	public void takeListOfStudents(String firstName, String lastName){
 		access = new MySQLAccess();
-		listOfStudents = students;
-		List<String> internal = new ArrayList<String>();
 
-		for (int i; i < listOfStudents.size(); i+=2) {
-			internal = access.getStudentInfo(listOfStudents.get(0).get(i), listOfStudents.get(0).get(i+1));
-			dictionary.put(i, internal);
-		}
-		// System.out.println(hm.get("key1"));
+		listOfStudentInfo = access.getStudentInfo(firstName, lastName);
+
+
 	}
-
-	public void getPreReqData(){
+ 
+	public void getPreReqData(String subCode, String cNumber){
 		try {
 			access = new MySQLAccess();
-			listOfPreReq = access.getPreReqData();	
+			listOfPreReq = access.getPreReqData(subCode, cNumber);
 		} catch (Exception e) {
                      //throw e;
 		} finally {
 		     
 		}
 	}
+
+	public String doCheckings(){
+
+		System.out.println(listOfStudentInfo);
+		if (listOfPreReq == null)
+			return "T";
+
+		List<String> part = Arrays.asList(listOfPreReq.get(0).split(","));
+		List<String> info = new ArrayList<String>();
+
+		for (int i = 0; i < listOfStudentInfo.size(); i+=2) {
+			String a = listOfStudentInfo.get(i) + listOfStudentInfo.get(i+1);
+			info.add(a);
+		}
+		
+		for (int i = 0; i < part.size(); i++) {
+			if (!info.contains(part.get(i))){
+				return "F";
+			}
+		}
+
+		return "T";
+	}
 }
+
+
+
+
+
+
+
+

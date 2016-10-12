@@ -16,34 +16,27 @@ public class CourseTest {
 	public void setUp()
 	{
 		getStudent = new GetStudents();
-		getStudent.getPreReqData();
 	}
 
-	@Given("^a professor wants to find a student \"([^\"]*)\" \"([^\"]*)\" and the total number of classes he has taken$")
-	public void aProfessorWantsToFindAStudentAndTheTotalNumberOfClassesHeHasTaken(String arg1, String arg2) throws Throwable {
-		List<List<String>> students = new ArrayList<List<String>>();
-		List<String> internal = new ArrayList<String>();
-
-		internal.add(arg1);
-		internal.add(arg2);
-
-		students.add(internal);
-
-	    // getStudent.takeStudent(students);
+	@Given("^a professor wants to know if a list of Students \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" are capable to take a Class \"([^\"]*)\" \"([^\"]*)\"$")
+	public void aProfessorWantsToKnowIfAListOfStudentsAreCapableToTakeAClass(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
+	    getStudent.takeListOfStudents(arg1, arg2);
+	    getStudent.getPreReqData(arg4, arg5);
 	}
 
-	@Then("^the number of classes (\\d+)$")
-	public void theNumberOfClasses(int arg1) throws Throwable {
-	    // assertEquals(arg1,getStudent.getCount());
-	}
-	
-	@Given("^a professor wants to find how many students took class (\\d+) section \"([^\"]*)\" class name \"([^\"]*)\"$")
-	public void aProfessorWantsToFindHowManyStudentsTookClassSectionClassName(int arg1, String arg2, String arg3) throws Throwable {
-	    // getStudent.takeStudent(arg2, arg3);
+	@When("^the Class has a Preq_list \"([^\"]*)\"$")
+	public void theClassHasAPreq_list(String arg1) throws Throwable {
+	    
 	}
 
-	@Then("^the number of students (\\d+)$")
-	public void theNumberOfStudents(int arg1) throws Throwable {
-	    // assertEquals(arg1, arg1);
+	@When("^a Student has taken these list of Classes \"([^\"]*)\" \"([^\"]*)\"$")
+	public void aStudentHasTakenTheseListOfClasses(String arg1, String arg2) throws Throwable {
+	    
 	}
+
+	@Then("^the should be in this Class \"([^\"]*)\"$")
+	public void theShouldBeInThisClass(String arg1) throws Throwable {
+	    assertEquals(arg1, getStudent.doCheckings());
+	}
+
 }
