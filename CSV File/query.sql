@@ -1,6 +1,3 @@
-show databases;
-use cs375;
-
 DROP TABLE IF EXISTS cs374_anon;
 CREATE TABLE cs374_anon (
 Pidm int(10) NOT NULL,
@@ -13,8 +10,7 @@ Subject_Code varchar(10),
 Course_Number varchar(10),
 Instructor varchar(20),
 First_Name varchar(40),
-Last_Name varchar(40),
-Constraint student_course PRIMARY KEY  (`Pidm`,`Term_Code`,`Department_Code`,`CRN`,`Section_Number`,`Banner_ID`));
+Last_Name varchar(40));
 
 LOAD DATA INFILE 'Test.csv' INTO TABLE cs374_anon
 FIELDS TERMINATED BY ',' ENCLOSED BY '"'
@@ -26,8 +22,7 @@ CREATE TABLE course_Preq(
 Subject_Code varchar(10) NOT NULL, 
 Course_Number varchar(10) NOT NULL, 
 Course_Title varchar(100),
-Course_Preq_Title varchar(100),
-Constraint course_preq PRIMARY KEY(`Subject_Code`,`Course_Number`));
+Course_Preq_Title varchar(100));
 
 LOAD DATA INFILE 'preQ.csv' INTO TABLE course_Preq
 FIELDS TERMINATED BY ',' ENCLOSED BY '"'
