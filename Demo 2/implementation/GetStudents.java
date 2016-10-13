@@ -35,7 +35,6 @@ public class GetStudents {
 
 	public String doCheckings(){
 
-		System.out.println(listOfStudentInfo);
 		if (listOfPreReq == null)
 			return "T";
 
@@ -54,6 +53,10 @@ public class GetStudents {
 		}
 
 		return "T";
+	}
+
+	public void printPreReqData(){
+		System.out.println(listOfPreReq);
 	}
 }
 
