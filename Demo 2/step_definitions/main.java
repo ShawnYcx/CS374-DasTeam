@@ -34,9 +34,9 @@ public class main{
 	    	getStudent.getPreReqData(subCode, cNumber);
 
 	    	if (getStudent.doCheckings().equals("T")){
-			    	System.out.println("The student is allowed to be in this class."); 
+			    	System.out.println("The student [" + firstName + ", " + lastName + "] is allowed to be in this class.");
 			    } else
-			    	System.out.println("The student is not allowed to be in this class.");
+			    	System.out.println("The student [" + firstName + ", " + lastName + "] is not allowed to be in this class.");
 
 			    	System.out.println("\nThe prereqs are: ");
 			    getStudent.printPreReqData(subCode, cNumber);
