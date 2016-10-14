@@ -85,7 +85,6 @@ public List<String> getStudentInfo(String firstName, String lastName) {
 
             internal.add(Subject_Code);
             internal.add(Course_Number);
-            System.out.println(internal);
         }
                              
      } catch (Exception e) {

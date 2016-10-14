@@ -35,18 +35,17 @@ public class GetStudents {
 	public boolean doCheckings(){
 
         
-        if (listOfPreReq == null || listOfPreReq.isEmpty() || listOfPreReq.size() == 0 || listOfPreReq.get(0).equals("")){
+        if ((listOfPreReq == null) || (listOfPreReq.isEmpty()) || (listOfPreReq.size() == 0) || (listOfPreReq.get(0).equals(""))){
             return true;
         }
-			
+			      
 
 		List<String> part = Arrays.asList(listOfPreReq.get(0).split(","));
 		List<String> info = new ArrayList<String>();
         
 		for (int i = 0; i < listOfStudentInfo.size(); i+=2) {
 			String a = listOfStudentInfo.get(i) + listOfStudentInfo.get(i+1);
-			info.add(a);
-            
+			info.add(a);   
 		}
 		
 		for (int i = 0; i < part.size(); i++) {
@@ -60,17 +59,24 @@ public class GetStudents {
 
 	public void printPreReqData(String subCode, String cNumber){
 		getPreReqData(subCode, cNumber);
-        if(listOfPreReq.get(0) == "null")
-            System.out.println(" true ");
-        else{
-         System.out.println("Where is it?" + listOfPreReq.get(0));
-        }
+		System.out.println(listOfPreReq);
 	}
     
     public boolean checkStudentExist(){
         if (listOfStudentInfo == null)
             return true;
         return false;
+    }
+
+    public void printClassTaken(){
+    	List<String> info = new ArrayList<String>();
+    	
+    	for (int i = 0; i < listOfStudentInfo.size(); i+=2) {
+			String a = listOfStudentInfo.get(i) + listOfStudentInfo.get(i+1);
+			info.add(a);   
+		}
+
+    	System.out.println(info);
     }
 }
 

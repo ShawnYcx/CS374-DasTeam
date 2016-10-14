@@ -17,7 +17,7 @@ public class main{
 		if (i.equals("1")){
 			String firstName, lastName, subCode, cNumber;
 
-			System.out.println("This program will check if the student is qualified to take a class according to the provided data.\n");
+			System.out.println("\nThis program will check if the student is qualified to take a class according to the provided data.\n");
 			Scanner user_input = new Scanner( System.in );
 			System.out.println("Input Student's first name: ");
 			firstName = user_input.next();
@@ -41,7 +41,11 @@ public class main{
 			    	System.out.println("The student [" + firstName + ", " + lastName + "] is not allowed to be in this class.");
                 }
                 
-                System.out.println("\nThe prereqs are: ");
+				System.out.println("\nList of classes that the student [" + firstName + ", " + lastName + "] has taken so far." );
+				getStudent.printClassTaken();
+
+
+                System.out.println("\nThe prereqs for the course [" + subCode + cNumber +"] is(are): ");
 			    getStudent.printPreReqData(subCode, cNumber);
                 
             }else {
@@ -62,7 +66,7 @@ public class main{
 				System.out.println("Input course number: ");
 				cNumber = user_input.next();
 
-				System.out.println("The prereqs are for this class is(are): ");
+				System.out.println("\nThe prereqs for the course [" + subCode + cNumber +"] is(are): ");
 			    getStudent.printPreReqData(subCode, cNumber);	    
 		}
 
