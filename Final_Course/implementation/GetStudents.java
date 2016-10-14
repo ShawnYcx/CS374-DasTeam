@@ -19,8 +19,6 @@ public class GetStudents {
 		access = new MySQLAccess();
 
 		listOfStudentInfo = access.getStudentInfo(firstName, lastName);
-
-
 	}
  
 	public void getPreReqData(String subCode, String cNumber){
@@ -36,15 +34,19 @@ public class GetStudents {
 
 	public String doCheckings(){
 
+        
 		if (listOfPreReq == null)
 			return "T";
 
 		List<String> part = Arrays.asList(listOfPreReq.get(0).split(","));
 		List<String> info = new ArrayList<String>();
-
+        
+        
+        
 		for (int i = 0; i < listOfStudentInfo.size(); i+=2) {
 			String a = listOfStudentInfo.get(i) + listOfStudentInfo.get(i+1);
 			info.add(a);
+            
 		}
 		
 		for (int i = 0; i < part.size(); i++) {
@@ -61,6 +63,12 @@ public class GetStudents {
 		getPreReqData(subCode, cNumber);
 		System.out.println(listOfPreReq);
 	}
+    
+    public boolean checkStudentExist(){
+        if (listOfStudentInfo == null)
+            return true;
+        return false;
+    }
 }
 
 

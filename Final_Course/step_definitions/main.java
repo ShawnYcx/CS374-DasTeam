@@ -32,17 +32,21 @@ public class main{
 			cNumber = user_input.next();
 
 			getStudent.takeListOfStudents(firstName, lastName);
-	    	getStudent.getPreReqData(subCode, cNumber);
+            getStudent.getPreReqData(subCode, cNumber);
 
-	    	if (getStudent.doCheckings().equals("T")){
+            if (!getStudent.checkStudentExist()){
+                if (getStudent.doCheckings().equals("T")){
 			    	System.out.println("The student [" + firstName + ", " + lastName + "] is allowed to be in this class.");
 			    } else
 			    	System.out.println("The student [" + firstName + ", " + lastName + "] is not allowed to be in this class.");
 
 			    	System.out.println("\nThe prereqs are: ");
 			    getStudent.printPreReqData(subCode, cNumber);
+            }else {
+                System.out.println("The student [" + firstName + ", " + lastName + "] does not exist in the database.");
+            }
 
-		} 
+		}
 
 		if (i.equals("2")) {
 			System.out.println("This program will list all the pre-req for a specific class.\n");

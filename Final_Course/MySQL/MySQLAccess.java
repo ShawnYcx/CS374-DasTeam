@@ -71,17 +71,6 @@ public List<String> getStudentInfo(String firstName, String lastName) {
             connect = DriverManager
                          .getConnection("jdbc:sqlite:Database/SQLite/CS374.db");
             statement = connect.createStatement();
-                        // DROP TABLE IF EXISTS course_Preq;
-                        // CREATE TABLE course_Preq(
-                        // Subject_Code varchar(10) NOT NULL, 
-                        // Course_Number varchar(10) NOT NULL, 
-                        // Course_Title varchar(100),
-                        // Course_Preq_Title varchar(100));
-
-                        // LOAD DATA INFILE 'preQ.csv' INTO TABLE course_Preq
-                        // FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-                        // LINES TERMINATED BY '\r\n'
-                        // IGNORE 1 LINES";
 
         String setFirstName = ("'" + firstName + "'");
         String setLastName = ("'%" + lastName + "%'");
