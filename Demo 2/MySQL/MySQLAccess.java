@@ -4,15 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
+import java.util.*;
+import org.sqlite.*;
 
 public class MySQLAccess {
-private String shawnConnection = "jdbc:mysql://localhost:3306/CS374?user=root&useSSL=false";
-private String ivanConnection = "jdbc:mysql://localhost/ent?useSSL=false&"+"user=root&password=Narutokurama12";
+// private String shawnConnection = "jdbc:mysql://localhost:3306/CS374?user=root&useSSL=false";
+// private String ivanConnection = "jdbc:mysql://localhost/ent?useSSL=false&"+"user=root&password=Narutokurama12";
 
 private Connection connect = null;
 private Statement statement = null;
@@ -22,13 +24,13 @@ private ResultSet resultSet = null;
 private List<List<String>> listOfLists = new ArrayList<List<String>>();
 private List<String> internal;
 
-public List<String> getPreReqData(String subCode, String cNum) throws Exception {
+public List<String> getPreReqData1(String subCode, String cNum) throws Exception {
          try {
             //This will load the MySQL driver, each DB has its own driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.sqlite.JDBC");
             // Setup the connection with the DB
             connect = DriverManager
-                         .getConnection("jdbc:mysql://localhost:3306/CS374?user=root&useSSL=false");
+                         .getConnection("jdbc:sqlite:Database/SQLite/CS374.db");
             statement = connect.createStatement();
             
             String sub = ("'" + subCode + "'");
@@ -51,6 +53,7 @@ public List<String> getPreReqData(String subCode, String cNum) throws Exception 
 
          } catch (Exception e) {
                  // throw e;
+            e.printStackTrace();
          } finally {
                  close();
          }
@@ -62,11 +65,22 @@ public List<String> getPreReqData(String subCode, String cNum) throws Exception 
 public List<String> getStudentInfo(String firstName, String lastName) {
     try {
         // This will load the MySQL driver, each DB has its own driver
-        Class.forName("com.mysql.jdbc.Driver");
-        // Setup the connection with the DB
-        connect = DriverManager
-                     .getConnection("jdbc:mysql://localhost:3306/CS374?user=root&useSSL=false");
-        statement = connect.createStatement();
+              Class.forName("org.sqlite.JDBC");
+            // Setup the connection with the DB
+            connect = DriverManager
+                         .getConnection("jdbc:sqlite:Database/SQLite/CS374.db");
+            statement = connect.createStatement();
+                        // DROP TABLE IF EXISTS course_Preq;
+                        // CREATE TABLE course_Preq(
+                        // Subject_Code varchar(10) NOT NULL, 
+                        // Course_Number varchar(10) NOT NULL, 
+                        // Course_Title varchar(100),
+                        // Course_Preq_Title varchar(100));
+
+                        // LOAD DATA INFILE 'preQ.csv' INTO TABLE course_Preq
+                        // FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+                        // LINES TERMINATED BY '\r\n'
+                        // IGNORE 1 LINES";
 
         String setFirstName = ("'" + firstName + "'");
         String setLastName = ("'%" + lastName + "%'");

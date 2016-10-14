@@ -25,7 +25,7 @@ public class GetStudents {
 	public void getPreReqData(String subCode, String cNumber){
 		try {
 			access = new MySQLAccess();
-			listOfPreReq = access.getPreReqData(subCode, cNumber);
+			listOfPreReq = access.getPreReqData1(subCode, cNumber);
 		} catch (Exception e) {
                      //throw e;
 		} finally {
@@ -55,7 +55,9 @@ public class GetStudents {
 		return "T";
 	}
 
-	public void printPreReqData(){
+	public void printPreReqData(String subCode, String cNumber){
+		access = new MySQLAccess();
+		getPreReqData(subCode, cNumber);
 		System.out.println(listOfPreReq);
 	}
 }

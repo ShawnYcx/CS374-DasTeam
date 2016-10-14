@@ -29,5 +29,3 @@ FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 LINES;
 
-select * from course_Preq limit 10;
-select * from cs374_anon limit 10;
