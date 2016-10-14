@@ -35,13 +35,15 @@ public class main{
             getStudent.getPreReqData(subCode, cNumber);
 
             if (!getStudent.checkStudentExist()){
-                if (getStudent.doCheckings().equals("T")){
+                if (getStudent.doCheckings()){
 			    	System.out.println("The student [" + firstName + ", " + lastName + "] is allowed to be in this class.");
-			    } else
+                } else{
 			    	System.out.println("The student [" + firstName + ", " + lastName + "] is not allowed to be in this class.");
-
-			    	System.out.println("\nThe prereqs are: ");
+                }
+                
+                System.out.println("\nThe prereqs are: ");
 			    getStudent.printPreReqData(subCode, cNumber);
+                
             }else {
                 System.out.println("The student [" + firstName + ", " + lastName + "] does not exist in the database.");
             }

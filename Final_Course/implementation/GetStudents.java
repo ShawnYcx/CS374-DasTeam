@@ -32,16 +32,16 @@ public class GetStudents {
 		}
 	}
 
-	public String doCheckings(){
+	public boolean doCheckings(){
 
         
-		if (listOfPreReq == null)
-			return "T";
+        if (listOfPreReq == null || listOfPreReq.isEmpty() || listOfPreReq.size() == 0 || listOfPreReq.get(0).equals("")){
+            return true;
+        }
+			
 
 		List<String> part = Arrays.asList(listOfPreReq.get(0).split(","));
 		List<String> info = new ArrayList<String>();
-        
-        
         
 		for (int i = 0; i < listOfStudentInfo.size(); i+=2) {
 			String a = listOfStudentInfo.get(i) + listOfStudentInfo.get(i+1);
@@ -51,17 +51,20 @@ public class GetStudents {
 		
 		for (int i = 0; i < part.size(); i++) {
 			if (!info.contains(part.get(i))){
-				return "F";
+				return false;
 			}
 		}
 
-		return "T";
+		return true;
 	}
 
 	public void printPreReqData(String subCode, String cNumber){
-		access = new MySQLAccess();
 		getPreReqData(subCode, cNumber);
-		System.out.println(listOfPreReq);
+        if(listOfPreReq.get(0) == "null")
+            System.out.println(" true ");
+        else{
+         System.out.println("Where is it?" + listOfPreReq.get(0));
+        }
 	}
     
     public boolean checkStudentExist(){
