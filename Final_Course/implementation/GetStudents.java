@@ -63,9 +63,11 @@ public class GetStudents {
 	}
     
     public boolean checkStudentExist(){
-        if (listOfStudentInfo == null)
-            return true;
-        return false;
+		if ((listOfStudentInfo == null) || (listOfStudentInfo.isEmpty()) || (listOfStudentInfo.size() == 0) || (listOfStudentInfo.get(0).equals(""))){
+		    return true;
+		}
+
+		return false;
     }
 
     public void printClassTaken(){
