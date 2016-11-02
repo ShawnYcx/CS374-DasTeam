@@ -15,6 +15,8 @@ public class GetStudents {
 	//Map<String, List<String>> listOfStudentInfo = new HashMap<String, List<String>>();
 	private List<String> listOfStudentInfo = new ArrayList<String>();
 
+	private List<String> listOfClassInfo = new ArrayList<String>();
+
 	public void takeListOfStudents(String firstName, String lastName){
 		access = new MySQLAccess();
 
@@ -30,6 +32,13 @@ public class GetStudents {
 		} finally {
 		     
 		}
+	}
+
+
+	public void getClassData(String subCode, String cNumber){
+		access = new MySQLAccess();
+
+		listOfClassInfo = access.getClassInfo(subCode, cNumber);
 	}
 
 	public boolean doCheckings(){
@@ -62,6 +71,14 @@ public class GetStudents {
 		System.out.println(listOfPreReq);
 	}
     
+   public boolean checkClassExist(){
+		if ((listOfClassInfo == null) || (listOfClassInfo.isEmpty()) || (listOfClassInfo.size() == 0) || (listOfClassInfo.get(0).equals(""))){
+		    return true;
+		}
+
+		return false;
+    }
+
     public boolean checkStudentExist(){
 		if ((listOfStudentInfo == null) || (listOfStudentInfo.isEmpty()) || (listOfStudentInfo.size() == 0) || (listOfStudentInfo.get(0).equals(""))){
 		    return true;
@@ -79,6 +96,13 @@ public class GetStudents {
 		}
 
     	System.out.println(info);
+    }
+
+    public void printStudentInClass(){
+    	
+    	for (int i = 0; i < listOfClassInfo.size(); i+=2) {
+			 System.out.println(listOfClassInfo.get(i+1) + ", " + listOfClassInfo.get(i));
+		}
     }
 }
 

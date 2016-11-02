@@ -38,8 +38,7 @@ public List<String> getPreReqData1(String subCode, String cNum) throws Exception
             String num = ("'%" + cNum + "%'");
 
             // System.out.println(sub);
-            // System.out.println(num);
-            //this function counts how many class a student is taking. 
+            // System.out.println(num); 
             String setSQL = ("SELECT * from course_Preq WHERE Subject_Code="+sub+" AND Course_Number Like"+ num);
 
             resultSet = statement.executeQuery(setSQL);
@@ -95,6 +94,40 @@ public List<String> getStudentInfo(String firstName, String lastName) {
      return internal;
      
 }
+
+public List<String> getClassInfo(String subCode, String cNumber) {
+    try {
+        // This will load the MySQL driver, each DB has its own driver
+              Class.forName("org.sqlite.JDBC");
+            // Setup the connection with the DB
+            connect = DriverManager
+                         .getConnection("jdbc:sqlite:Database/SQLite/CS374.db");
+            statement = connect.createStatement();
+
+        String setSubjectCode = ("'" + subCode + "'");
+        String setCodeNumber = ("'%" + cNumber + "%'");
+        //this function counts how many class a student is taking. 
+        String setSQL = ("SELECT First_Name, Last_Name, Subject_Code, Course_Number from cs374_anon WHERE Subject_Code="+ setSubjectCode + " AND Course_Number like "+ setCodeNumber);
+
+        resultSet = statement.executeQuery(setSQL);
+        internal = new ArrayList<String>();
+        while (resultSet.next()) {
+            String First_Name = resultSet.getString("First_Name");
+            String Last_Name = resultSet.getString("Last_Name");
+
+            internal.add(First_Name);
+            internal.add(Last_Name);
+        }
+                             
+     } catch (Exception e) {
+             // throw e;
+     } finally {
+             close();
+     }
+     return internal;
+     
+}
+
 
 // You need to close the resultSet
 private void close() {

@@ -8,7 +8,9 @@ public class main{
 		GetStudents getStudent = new GetStudents();
 
 		System.out.println("\nType 1 to check if a specific student is qualified to take a class according to the provided data");
-		System.out.println("Type 2 to list all the pre-req for a specific class \n");
+		System.out.println("Type 2 to list all the pre-req for a specific class");
+		System.out.println("Type 3 to check the list of students in a given class");
+
 
 		Scanner options = new Scanner( System.in );
 		String i = options.next();
@@ -49,7 +51,7 @@ public class main{
 			    getStudent.printPreReqData(subCode, cNumber);
                 
             }else {
-                System.out.println("The student [" + firstName + ", " + lastName + "] does not exist in the database.");
+                System.out.println("The student [" + lastName + ", " + firstName + "] does not exist in the database.");
             }
 
 		}
@@ -70,7 +72,27 @@ public class main{
 			    getStudent.printPreReqData(subCode, cNumber);	    
 		}
 
-	    
+	    if (i.equals("3")){
+	    	System.out.println("This program will list all the students in a specific class.\n");
+
+				Scanner user_input = new Scanner( System.in );
+				String subCode, cNumber;
+
+				System.out.println("Input subject code: ");
+				subCode = user_input.next();
+
+				System.out.println("Input course number: ");
+				cNumber = user_input.next();
+
+				getStudent.getClassData(subCode, cNumber);
+				if (!getStudent.checkClassExist()){
+					System.out.println("\nList of students taking [" + subCode + "" + cNumber + "] are: " );
+					getStudent.printStudentInClass();
+				}else{
+					System.out.println("The class [" + subCode + "" + cNumber + "] does not exist in the database.");
+				}
+
+	    }
 	    
 	}
 }
